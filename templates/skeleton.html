@@ -18,14 +18,15 @@
     <header>
       <nav>
         <div class="nav-wrapper {{ vars.color }}">
-          <a href="/" class="brand-logo">{{ vars.title|title }}</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            {% for single_link, href in vars.menu_items.items() %}
-              <li><a href="{{href}}" class="{{ vars.color }}-text text-lighten-5">{{single_link}}</a></li>
-            {% endfor %}
-          </ul>
-        </div>src
-src
+          <div class="container">
+            <a href="/" class="brand-logo">{{ vars.title|title }}</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              {% for single_link, href in vars.menu_items.items() %}
+                <li><a href="{{href}}" class="{{ vars.color }}-text text-lighten-5">{{single_link|title}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
 
@@ -47,7 +48,7 @@ src
             <h5 class="white-text">{{ vars.footer_links_heading|title }}</h5>
             <ul>
               {% for single_link, href in vars.footer_links.items() %}
-                <li><a class="{{ vars.color }}-text text-lighten-5" href="{{ href }}">{{ single_link }}</a></li>
+                <li><a class="{{ vars.color }}-text text-lighten-5" href="{{ href }}">{{ single_link|title }}</a></li>
               {% endfor %}
             </ul>
           </div>

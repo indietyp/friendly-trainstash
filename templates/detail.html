@@ -2,7 +2,6 @@
 {% block content %}
 <h3>{{ word|title }}</h3>
 <div class="divider"></div>
-<h4>{{ vars.toc|title }}</h4>
 <ol>
   {% for sub_heading, data in article.items() %}
     <li>
@@ -17,14 +16,18 @@
       {{ data.text }}
     </p>
   {% endfor %}
+  {% for xx in to_linkify %}
+  {% endfor %}
 <div class="divider"></div>
 <div class="center-align" style="width:100%">
-  {% for word, value in wordcloud.items() %}
-    <a href="/{{word}}" class="{{vars.color}}-text text-accent-3" style="font-size: {{value * 3}}em;">{{word}}</a>
-    {% if 0 == loop.index % 5 %}
-      <br>
-    {% endif %}    
-  {% endfor %}
+  <p>
+    {% for word, value in wordcloud.items() %}
+      <a href="/{{word}}" class="{{vars.color}}-text text-accent-3" style="font-size: {{value * 3}}em;">{{word}}</a>
+      {% if 0 == loop.index % 5 %}
+        <br>
+      {% endif %}    
+    {% endfor %}
+  </p>
 </div>
 
 
