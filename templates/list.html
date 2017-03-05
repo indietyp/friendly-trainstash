@@ -1,0 +1,12 @@
+{% extends "skeleton.html" %}
+{% block content %}
+<ul>
+  {% for single_word in word_list %}
+    <li>
+      <a href="/{{single_word}}" class="{{vars.color}}-text text-accent-3">{{single_word|title}}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}

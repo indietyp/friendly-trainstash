@@ -1,0 +1,19 @@
+{% extends "skeleton.html" %}
+{% block content %}
+<h1 class="center-align">{{ vars.title|title }}</h1>
+<h3 class="center-align">{{ vars.sub_title|title }}</h3>
+<div class="divider"></div>
+<p>
+	{{ desc }}
+</p>
+<div class="divider"></div>
+<div class="row">
+	{% for single_action_word in action_words %}
+		<div class="s4 col center-align">
+			<h5>
+				<a href="/{{ vars.special_word }}/{{ single_action_word }}" class="{{vars.color}}-text text-accent-3">{{ single_action_word|title }}</a>
+			</h5>
+		</div>
+	{% endfor %}
+</div>
+{% endblock %}

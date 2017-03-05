@@ -1,0 +1,31 @@
+{% extends "skeleton.html" %}
+{% block content %}
+<h3>{{ word|title }}</h3>
+<div class="divider"></div>
+<h4>{{ vars.toc|title }}</h4>
+<ol>
+  {% for sub_heading, data in article.items() %}
+    <li>
+      <a href="#{{data.index}}" class="{{vars.color}}-text text-accent-3">{{ sub_heading|title }}</a>
+    </li>
+  {% endfor %}
+</ol>
+<div class="divider"></div>
+  {% for sub_heading, data in article.items() %}
+    <h4 id="{{data.index}}">{{sub_heading}}</h4></h4>
+    <p>
+      {{ data.text }}
+    </p>
+  {% endfor %}
+<div class="divider"></div>
+<div class="center-align" style="width:100%">
+  {% for word, value in wordcloud.items() %}
+    <a href="/{{word}}" class="{{vars.color}}-text text-accent-3" style="font-size: {{value * 3}}em;">{{word}}</a>
+    {% if 0 == loop.index % 5 %}
+      <br>
+    {% endif %}    
+  {% endfor %}
+</div>
+
+
+{% endblock %}

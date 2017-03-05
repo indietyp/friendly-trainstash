@@ -1,0 +1,63 @@
+<!doctype html>
+  <head>
+    <title>
+      {% block title %}
+      Friendly Trainstash
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/icon_font.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="/static/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/materialize/js/materialize.min.js"></script>
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-wrapper {{ vars.color }}">
+          <a href="/" class="brand-logo">{{ vars.title|title }}</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {% for single_link, href in vars.menu_items.items() %}
+              <li><a href="{{href}}" class="{{ vars.color }}-text text-lighten-5">{{single_link}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>src
+src
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </main>
+
+    <footer class="page-footer {{ vars.color }}">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">{{ vars.footer_title|title }}</h5>
+            <p class="grey-text text-lighten-4">{{ vars.footer_text }}</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">{{ vars.footer_links_heading|title }}</h5>
+            <ul>
+              {% for single_link, href in vars.footer_links.items() %}
+                <li><a class="{{ vars.color }}-text text-lighten-5" href="{{ href }}">{{ single_link }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        {{ vars.bottom_line_text }}
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
